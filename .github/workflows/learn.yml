@@ -1,0 +1,19 @@
+name: My First Pipeline
+
+on:
+  push:
+    branches:
+      - main
+      
+jobs:
+  first-job: 
+    runs-on: ubuntu-latest
+    steps:
+      - name: print your name
+        run: echo "Warisha Ahmed"
+
+      - name: today Date
+        run: date 
+
+      - name: file list
+        run: ls
