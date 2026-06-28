@@ -1,0 +1,25 @@
+on: push
+jobs:
+  my-jobs:
+    runs-on: ubuntu-latest
+
+    env:
+      APP_NAME: EduPak
+      VERSION: 1.0
+
+    steps:
+      - run: echo "App $APP_NAME"
+      - run: echo "Version $VERSION"
+      - run: echo "Password"
+
+#if conditions
+      - name: only run on main branch
+        if: github.ref == 'refs/heads/main'
+        run: echo "This is the main branch"
+      - name: only if passes
+        if: success()
+        run: echo "This job passed"
+      - name: only if fails
+        if: failure()
+        run: echo "This job failed"
+  
